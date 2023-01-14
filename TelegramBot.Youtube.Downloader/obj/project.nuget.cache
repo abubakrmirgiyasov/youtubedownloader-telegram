@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Nvi2lOjm1kRUL4hH/t5S3wk/N7SDKdzDpH3+TQEE5cSlcoGU++bWzb34VOjKMmJngekF64GxyJG0AgGmNJ9XQw==",
+  "success": true,
+  "projectFilePath": "D:\\Works\\TelegramBot\\TelegramBot.Youtube.Downloader\\TelegramBot.Youtube.Downloader.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\abuba\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\abuba\\.nuget\\packages\\telegram.bot\\18.0.0\\telegram.bot.18.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

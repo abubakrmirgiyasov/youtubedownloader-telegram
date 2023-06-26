@@ -5,6 +5,14 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{CCB39890-D0DC-4A77-B281-BFD1B79630B0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{08A3AED4-2837-4597-BAF1-DD54FAFC3383}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{211C27F7-D640-4E2D-BC31-E154202970C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebHook.YouTube.Downloader", "src\WebHook.YouTube.Downloader\WebHook.YouTube.Downloader.csproj", "{C4B02A4F-303A-41BA-BD33-B27F30D1A339}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHook.YouTube-DLP.Library", "src\WebHook.YouTube-DLP.Library\WebHook.YouTube-DLP.Library.csproj", "{37E5EC6E-347A-4EBD-A1FB-5A0C207579D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +23,21 @@ Global
 		{CCB39890-D0DC-4A77-B281-BFD1B79630B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCB39890-D0DC-4A77-B281-BFD1B79630B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCB39890-D0DC-4A77-B281-BFD1B79630B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4B02A4F-303A-41BA-BD33-B27F30D1A339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4B02A4F-303A-41BA-BD33-B27F30D1A339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4B02A4F-303A-41BA-BD33-B27F30D1A339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4B02A4F-303A-41BA-BD33-B27F30D1A339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37E5EC6E-347A-4EBD-A1FB-5A0C207579D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37E5EC6E-347A-4EBD-A1FB-5A0C207579D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37E5EC6E-347A-4EBD-A1FB-5A0C207579D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37E5EC6E-347A-4EBD-A1FB-5A0C207579D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C4B02A4F-303A-41BA-BD33-B27F30D1A339} = {08A3AED4-2837-4597-BAF1-DD54FAFC3383}
+		{37E5EC6E-347A-4EBD-A1FB-5A0C207579D3} = {08A3AED4-2837-4597-BAF1-DD54FAFC3383}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F57AD4FB-FB11-47F8-8542-727035B712AC}

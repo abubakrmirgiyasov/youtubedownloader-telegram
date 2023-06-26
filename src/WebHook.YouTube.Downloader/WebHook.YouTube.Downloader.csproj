@@ -14,12 +14,15 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Telegram.Bot" Version="19.0.0" />
-    <PackageReference Include="YoutubeDLSharp" Version="1.0.0-beta6" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Infrastructure\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebHook.YouTube-DLP.Library\WebHook.YouTube-DLP.Library.csproj" />
   </ItemGroup>
 
 </Project>

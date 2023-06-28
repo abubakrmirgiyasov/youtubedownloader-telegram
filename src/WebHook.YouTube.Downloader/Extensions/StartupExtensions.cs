@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using Telegram.Bot;
+using WebHook.YouTube.Downloader.Common;
 using WebHook.YouTube.Downloader.Services;
 using WebHook.YouTube.Downloader.Services.Commands;
 
@@ -34,14 +35,17 @@ public static class StartupExtensions
         });
 
         builder.Services.AddScoped<UpdateHandlerServiceBase, UpdateHandlerServiceImplementation>();
+        builder.Services.AddScoped<IFormatManager, FormatManager>();
 
         builder.Services.AddCommandManager((serviceProvider, commandManagerBuilder) =>
         {
-            //const int ReplyKeyboardColumns = 3;
+            const int ReplyKeyboardColumns = 3;
 
             var serializerOptions = serviceProvider.GetRequiredService<JsonSerializerOptions>();
+            var formatManager = serviceProvider.GetRequiredService<IFormatManager>();
 
             commandManagerBuilder.RegisterCommand(new StartCommand());
+            commandManagerBuilder.RegisterCommand(new DownloadCommand(formatManager, serializerOptions, ReplyKeyboardColumns));
         });
 
         builder.Services

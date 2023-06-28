@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  telegramwebhook.youtube.downloader:
-    image: ${DOCKER_REGISTRY-}telegramwebhookyoutubedownloader
-    build:
-      context: .
-      dockerfile: TelegramWebHook.YouTube.Downloader/Dockerfile

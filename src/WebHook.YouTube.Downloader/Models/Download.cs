@@ -27,6 +27,6 @@ public class Download
 
     public override string ToString()
     {
-        return $"{Ico} {Format}p";
+        return $"{Ico} {(int)Format}p";
     }
 }

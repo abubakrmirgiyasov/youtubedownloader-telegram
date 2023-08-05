@@ -54,19 +54,19 @@ public class FormatManager : IFormatManager
         new()
         {
             Name = "480",
-            Format = Format.HighMedium,
+            Format = Format.Medium,
             Ico = "🎥",
         },
         new()
         {
             Name = "360",
-            Format = Format.HighMedium,
+            Format = Format.LowMedium,
             Ico = "🎥",
         },
         new()
         {
             Name = "144",
-            Format = Format.HighMedium,
+            Format = Format.Low,
             Ico = "🎥",
         },
     };

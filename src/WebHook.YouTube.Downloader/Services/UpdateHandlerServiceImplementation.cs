@@ -5,6 +5,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using WebHook.YouTube.Downloader.Common;
 using WebHook.YouTube.Downloader.Extensions;
+using WebHook.YouTube.Downloader.Utils;
 using YoutubeDLSharp;
 using YoutubeDLSharp.Metadata;
 using YoutubeDLSharp.Options;
@@ -59,28 +60,28 @@ public class UpdateHandlerServiceImplementation : UpdateHandlerServiceBase
 						text: string.Join(Environment.NewLine, link.ErrorOutput),
 						cancellationToken: cancellationToken);
 
-                var formats = link.Data.Formats
+				var formats = link.Data.Formats
 					.Where(x => x.Extension == "webm")
 					.DistinctBy(x => x.FormatNote);
 
-				//await BotClient.DeleteMessageAsync(
-				//	chatId: chatId,
-				//	messageId: loading.MessageId,
-				//	cancellationToken: cancellationToken);
+				await BotClient.DeleteMessageAsync(
+					chatId: chatId,
+					messageId: loading.MessageId,
+					cancellationToken: cancellationToken);
 
-                //await BotClient.DeleteMessageAsync(
-                //    chatId: chatId,
-                //    messageId: message.MessageId,
-                //    cancellationToken: cancellationToken);
+				await BotClient.DeleteMessageAsync(
+					chatId: chatId,
+					messageId: message.MessageId,
+					cancellationToken: cancellationToken);
 
+				var markups = TelegramUtilities.ParseDownloadCollectionKeyboardMarkup(3, message.MessageId, KeyboardDirection.Target, await new FormatManager().GetDownloadsFormatCollectionAsync(), _jsonSerializerOptions);
 
-
-                await BotClient.SendPhotoAsync(
+				await BotClient.SendPhotoAsync(
 					chatId: chatId,
 					photo: InputFile.FromUri(link.Data.Thumbnail),
 					caption: GenerateCaption(link.Data.Title, message.Text, link.Data.UploaderUrl, link.Data.Uploader, GetFormats(formats)),
-                    parseMode: ParseMode.Html,
-                    replyMarkup: null,
+					parseMode: ParseMode.Html,
+					replyMarkup: markups,
 					disableNotification: false,
 					cancellationToken: cancellationToken);
 			}

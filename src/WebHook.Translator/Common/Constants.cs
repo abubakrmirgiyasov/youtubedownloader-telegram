@@ -51,3 +51,9 @@ public enum KeyboardDirection : byte
     Source = 0,
     Target = 1,
 }
+
+public enum MarkupType : byte
+{
+    Language = 0,
+    Play = 1,
+}

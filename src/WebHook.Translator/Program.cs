@@ -46,6 +46,7 @@ builder.Services.AddCommandManager((serviceProvider, commandManager) =>
     var serializerOptions = serviceProvider.GetRequiredService<JsonSerializerOptions>();
     commandManager.RegisterCommand(new StartCommand());
     commandManager.RegisterCommand(new PlayCommand());
+    commandManager.RegisterCommand(new TranslateCommand());
     commandManager.RegisterCommand(new ChooseCommand(
         userRepository: userRepository,
         languageManager: languageManager,

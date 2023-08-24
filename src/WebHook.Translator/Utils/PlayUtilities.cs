@@ -7,8 +7,8 @@ namespace WebHook.Translator.Utils;
 
 public static partial class Utilities
 {
-    public static InlineKeyboardMarkup ParseLanguageCollectionKeyboardMarkup(
-        IEnumerable<Language> languages,
+    public static InlineKeyboardMarkup ParsePlayCollectionKeyboardMarkup(
+        IEnumerable<Play> plays,
         int columns,
         int messageId,
         KeyboardDirection direction,
@@ -17,31 +17,34 @@ public static partial class Utilities
         var buttonList = new List<IEnumerable<InlineKeyboardButton>>();
         var row = new List<InlineKeyboardButton>();
 
-        foreach (var language in languages)
+        foreach (var play in plays)
         {
-            var callbackData = new LanguageChoiseResponse
+            var callbackData = new ChoiceResponse()
             {
-                Code = language.Code,
+                Code = play.Code,
                 Direction = direction,
                 MessageId = messageId,
+                MarkupType = MarkupType.Play,
             };
 
+            string json = JsonSerializer.Serialize(
+                value: callbackData,
+                options: jsonSerializerOptions);
+
             row.Add(InlineKeyboardButton.WithCallbackData(
-                text: language.ToString(),
-                callbackData: JsonSerializer.Serialize(
-                    value: callbackData,
-                    options: jsonSerializerOptions)));
+                text: play.ToString(),
+                callbackData: json));
 
             if (row.Count == columns)
             {
-                buttonList.Add(row.ToArray());
+                buttonList.Add(row);
                 row.Clear();
             }
         }
 
         if (row.Count > 0)
             buttonList.Add(row.ToArray());
-
+        
         return new InlineKeyboardMarkup(buttonList);
     }
 }

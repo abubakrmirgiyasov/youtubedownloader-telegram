@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Threading;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using WebHook.Translator.Common;
@@ -64,31 +65,22 @@ public class UpdateHandlerServiceImplementation : UpdateHandlerService
     {
         try
         {
-            var response = JsonSerializer.Deserialize<LanguageChoiseResponse>(query.Data!, _jsonSerializerOptions);
+            var response = JsonSerializer.Deserialize<ChoiceResponse>(query.Data!, _jsonSerializerOptions);
             if (response is null)
                 return;
 
-            var chatId = query.Message!.Chat.Id;
-            //var user = await
-
-            if (response.Direction == KeyboardDirection.Source) 
+            long chatId = query.Message!.Chat.Id;
+            
+            switch (response.MarkupType)
             {
-
+                case MarkupType.Language:
+                    await LanguageEdit(chatId, response, cancellationToken);
+                    break;
+                case MarkupType.Play:
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-
-            }
-
-
-            var language = await _languageManager.GetLanguageByCodeAsync(response.Code);
-            string text = $"{response.Direction} language successfully changed to {language}";
-
-            await _BotClient.EditMessageTextAsync(
-                chatId: chatId,
-                messageId: response.MessageId,
-                text: text,
-                cancellationToken: cancellationToken);
         }
         catch (Exception ex)
         {
@@ -97,5 +89,29 @@ public class UpdateHandlerServiceImplementation : UpdateHandlerService
 
             // HandleErrorAsync(....;
         }
+    }
+
+    private async Task LanguageEdit(long chatId, ChoiceResponse response, CancellationToken cancellationToken)
+    {
+        //var user = await
+
+        if (response.Direction == KeyboardDirection.Source)
+        {
+
+        }
+        else
+        {
+
+        }
+
+
+        var language = await _languageManager.GetLanguageByCodeAsync(response.Code);
+        string text = $"{response.Direction} language successfully changed to {language}";
+
+        await _BotClient.EditMessageTextAsync(
+            chatId: chatId,
+            messageId: response.MessageId,
+            text: text,
+            cancellationToken: cancellationToken);
     }
 }

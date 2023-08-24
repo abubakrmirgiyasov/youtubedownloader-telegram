@@ -16,7 +16,7 @@ public class TranslateCommand : ICommand
 
         return botClient.SendTextMessageAsync(
             chatId: chatId,
-            text: "",
+            text: message,
             cancellationToken: cancellationToken);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace WebHook.Translator.Models;
 
-public class Language
+public class Language : IBase
 {
     public string Code { get; set; }
 

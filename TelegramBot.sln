@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebHook.YouTube.Downloader"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebHook.YouTube-DLP.Library", "src\WebHook.YouTube-DLP.Library\WebHook.YouTube-DLP.Library.csproj", "{37E5EC6E-347A-4EBD-A1FB-5A0C207579D3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebHook.Translator", "src\WebHook.Translator\WebHook.Translator.csproj", "{5F5FFBEC-C1D7-4829-A9B3-D2F7482A1477}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{37E5EC6E-347A-4EBD-A1FB-5A0C207579D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37E5EC6E-347A-4EBD-A1FB-5A0C207579D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37E5EC6E-347A-4EBD-A1FB-5A0C207579D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F5FFBEC-C1D7-4829-A9B3-D2F7482A1477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F5FFBEC-C1D7-4829-A9B3-D2F7482A1477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F5FFBEC-C1D7-4829-A9B3-D2F7482A1477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F5FFBEC-C1D7-4829-A9B3-D2F7482A1477}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C4B02A4F-303A-41BA-BD33-B27F30D1A339} = {08A3AED4-2837-4597-BAF1-DD54FAFC3383}
 		{37E5EC6E-347A-4EBD-A1FB-5A0C207579D3} = {08A3AED4-2837-4597-BAF1-DD54FAFC3383}
+		{5F5FFBEC-C1D7-4829-A9B3-D2F7482A1477} = {08A3AED4-2837-4597-BAF1-DD54FAFC3383}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F57AD4FB-FB11-47F8-8542-727035B712AC}
